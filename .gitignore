@@ -1,0 +1,3 @@
+# .dockerignore
+# ignore all files except package.json
+!package.json
