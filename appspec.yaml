@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "ABS-tracking-layer1-api-Container"
+          ContainerName: "nodejs"
           ContainerPort: 80
