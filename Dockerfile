@@ -6,7 +6,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copying all the files from your file system to container file system
-COPY package.json .
+COPY package.json /usr/src/app/
 
 #RUN yum update -y && yum install -y nodejs
 
