@@ -1,20 +1,20 @@
-# Use an official Node.js runtime as the base image
-FROM public.ecr.aws/aws-containers/ecsdemo-nodejs:c3e96da
+FROM public.ecr.aws/eag/nodejs:16-build
 
-# Set the working directory in the image
-WORKDIR /app
+# Create a directory for the application and set it as the working directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Copy the package.json and package-lock.json to the image
-COPY package*.json ./
+# Copy the package.json file to the image
+COPY package.json .
 
 # Install the required dependencies
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the application code to the image
 COPY . .
 
-# Specify the command to run when the container starts
-CMD ["npm", "start"]
-
 # Expose the port that the application is listening on
 EXPOSE 3030
+
+# Specify the command to run when the container starts
+CMD ["npm", "start"]
