@@ -5,6 +5,8 @@ FROM public.ecr.aws/eag/nodejs:16-build
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+RUN cd /usr/src/app
+
 # Copying all the files from your file system to container file system
 COPY package.json .
 
