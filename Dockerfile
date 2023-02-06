@@ -1,23 +1,20 @@
-# From base image node
-FROM public.ecr.aws/aws-containers/ecsdemo-nodejs:c3e96da
+# Use an official Node.js runtime as the base image
+FROM node:14-alpine
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Set the working directory in the image
+WORKDIR /app
 
-# Copying all the files from your file system to container file system
-COPY package.json /usr/src/app/
+# Copy the package.json and package-lock.json to the image
+COPY package*.json ./
 
-#RUN yum update -y && yum install -y nodejs
+# Install the required dependencies
+RUN npm ci
 
-# Install all dependencies
-RUN npm install
+# Copy the rest of the application code to the image
+COPY . .
 
-# Copy other files too
-COPY ./ .
+# Specify the command to run when the container starts
+CMD ["npm", "start"]
 
-# Expose the port
+# Expose the port that the application is listening on
 EXPOSE 3030
-
-# Command to run app when intantiate an image
-CMD ["npm","start"]
