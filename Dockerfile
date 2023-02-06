@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:14-alpine
+FROM public.ecr.aws/aws-containers/ecsdemo-nodejs:c3e96da
 
 # Set the working directory in the image
 WORKDIR /app
