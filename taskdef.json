@@ -1,0 +1,24 @@
+{
+    "executionRoleArn": "arn:aws:iam::319676735363:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "ABS-tracking-layer1-api-Container",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "2048",
+    "memory": "8192",
+    "family": "ABS-tracking-layer-api-TD"
+}
